@@ -8,22 +8,17 @@ import { left } from "@popperjs/core";
 
 window.onload = function() {
   function generateDomain(pronun, adj, noun) {
-    let myArray = [];
+    let randomDomain = [];
 
     for (let i in pronun) {
       for (let j in adj) {
         for (let k in noun) {
-          let resultPronun = pronun[i];
-          let resultAdj = adj[j];
-          let resultNoun = noun[k];
-
-          let domain = resultPronun + resultAdj + resultNoun;
-
-          myArray.push(domain);
+          let domain = pronun[i] + adj[j] + noun[k];
+          randomDomain.push(domain);
         }
       }
     }
-    return myArray;
+    return randomDomain;
   }
   let pronun = ["the", "of", "other"];
   let adj = ["great", "big", "small"];
@@ -33,5 +28,4 @@ window.onload = function() {
   document.getElementById("listDomainn").innerHTML = result
     .map(domain => '<li class="list-group-item">' + domain + "</li>")
     .join("");
-  console.log(result);
 };
